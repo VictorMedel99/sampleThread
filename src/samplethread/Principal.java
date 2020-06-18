@@ -6,13 +6,13 @@ package samplethread;
  * @author victorm
  */
 public class Principal extends javax.swing.JFrame {
-    contadorHilo c=null;
+    ContadorHilo c=null;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
-        c=new contadorHilo(txtv);
+        c=new ContadorHilo(txtv);
         this.setLocationRelativeTo(null);
     }
 
