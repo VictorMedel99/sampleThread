@@ -20,14 +20,13 @@ public class ContadorHilo extends Thread {
     private JTextField txtv;
     private JLabel camHora;
     private Calendar HoraActual;
-    private SimpleDateFormat horaA = new SimpleDateFormat("hh:mm:ss");
+    private SimpleDateFormat Formato = new SimpleDateFormat("hh:mm:ss");
     private long hora = 0, min = 0, seg = 0;
 
-    public ContadorHilo(JTextField txtv,JLabel camHora) {
+    public ContadorHilo(JTextField txtv, JLabel camHora) {
         this.txtv = txtv;
         this.camHora = camHora;
-        
-        
+
     }
 
     public synchronized void detener() {
@@ -51,9 +50,15 @@ public class ContadorHilo extends Thread {
                     hora++;
                 }
                 seg++;
+                
+                
                 txtv.setText(hora + ":" + min + ":" + seg);
+                
                 HoraActual = Calendar.getInstance();
-                camHora.setText(horaA.format(HoraActual.getTime()));
+                camHora.setText(Formato.format(HoraActual.getTime()));
+                
+                
+                
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Hilo1.class.getName()).log(Level.SEVERE, null, ex);
